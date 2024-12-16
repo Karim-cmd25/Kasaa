@@ -1,0 +1,80 @@
+// Flexbox mixin
+@mixin flex-center(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $wrap: wrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Font mixins
+@mixin font-base(
+  $size: $font-size-base,
+  $weight: 400,
+  $color: $primary-color,
+  $align: left
+) {
+  font-family: $font-family-base;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  text-align: $align;
+}
+
+@mixin title-font(
+  $size: $font-size-large,
+  $weight: 700,
+  $color: $primary-color,
+  $align: center
+) {
+  font-family: $font-family-base;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  text-align: $align;
+}
+
+// Logo size
+@mixin logo-size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// Margin and Padding mixins
+@mixin margin-auto {
+  margin: auto;
+}
+
+@mixin margin-top($size: $margin-large) {
+  margin-top: $size;
+}
+
+@mixin margin-bottom($size: $margin-medium) {
+  margin-bottom: $size;
+}
+
+@mixin padding($size: $padding-small) {
+  padding: $size;
+}
+
+@mixin margin-collapse($size: $margin-medium) {
+  margin: $size auto;
+}
+
+// Border-radius mixin
+@mixin border-radius($size: $border-radius-medium) {
+  border-radius: $size;
+}
+
+// Transition mixin
+@mixin transition(
+  $property: all,
+  $duration: $transition-duration,
+  $timing: ease-in-out
+) {
+  transition: $property $duration $timing;
+}

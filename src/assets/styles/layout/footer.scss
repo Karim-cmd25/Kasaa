@@ -1,0 +1,35 @@
+@import '../settings';
+
+.footer {
+@include flex-center(column);
+  background-color: $secondary-color;
+  color: $primary-color;
+  width: 100%;
+  height: $footer-height;
+  @include margin-top($margin-medium);
+  padding: 20px;
+
+  @media (max-width: $breakpoint-mobile) {
+    margin: auto; 
+   }  
+
+  &__logo {
+    @include logo-size(122px, 40px); // Taille par défaut
+    @include margin-auto; 
+
+    @media (max-width: $breakpoint-mobile) {
+     margin: 20px; 
+    }  
+  }
+
+  &__text-copyright {
+    font-size: $font-size-medium;
+
+    @media (max-width: $breakpoint-mobile) {
+     font-size: $font-size-small;
+     line-height: 18px;
+     width: 100px;
+    }  
+
+  }
+}

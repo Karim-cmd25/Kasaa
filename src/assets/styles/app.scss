@@ -1,0 +1,11 @@
+// Importation des paramètres globaux
+@import "./settings";
+
+// Importation des styles de layout
+@import "./layout/header";
+@import "./layout/footer";
+
+// Importation des styles des composants
+@import "./components/errorPage";
+@import "./components/nav";
+@import "./components/banner";

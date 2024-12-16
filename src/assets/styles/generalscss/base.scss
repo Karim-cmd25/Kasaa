@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: $font-family-base;
+}
+
+main {
+  @include margin-auto;
+  @include flex-center(column);
+  margin: $margin-small;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $secondary-color;
+}

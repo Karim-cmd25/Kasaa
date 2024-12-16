@@ -1,0 +1,28 @@
+@import '../settings';
+
+.navbar {
+  @include font-base($font-size-medium, 500);
+
+  @media (max-width:$breakpoint-tablet) {
+    font-size: $font-size-base;
+  }
+  @media (max-width:$breakpoint-mobile) {
+    font-size: $font-size-small;
+  }
+
+  &__ul {
+   @include flex-center;
+   flex-wrap: wrap;
+    gap: $gap-large;
+
+   @media (max-width:$breakpoint-mobile) {
+    gap: $gap-medium;
+  }
+  }
+
+  &__list {
+    & .navbar__link.active{
+      text-decoration: underline;
+    }
+  }
+}

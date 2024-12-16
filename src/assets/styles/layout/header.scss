@@ -1,0 +1,24 @@
+@import '../settings';
+
+.header {
+  @include flex-center(row, space-between);
+  max-width: $main-width;
+  margin: 30px auto;
+
+  @media (max-width: 1240px) {
+    margin: 30px 15px;
+  }
+
+  @media (max-width:$breakpoint-tablet) {
+    margin: 20px;
+  }
+  
+  &__logo {
+    @include logo-size(211px,68px);
+
+    @media (max-width: $breakpoint-mobile) {
+      width: 145px;
+      height: auto;
+    }
+  }
+}

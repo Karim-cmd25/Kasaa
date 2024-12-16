@@ -1,0 +1,35 @@
+@import '../settings';
+
+.error {
+  @include flex-center(column);
+  @include padding($padding-large);
+
+  &__logo {
+    @include margin-top($margin-large);
+    max-width: 597px;
+    width: 100%;
+  }
+
+  &__message {
+    color: $tertiary-color;
+    font-size: $font-size-large;
+    font-weight: 500;
+    margin: 100px;
+
+    @media (max-width:$breakpoint-mobile) {
+      font-size: $font-size-base;
+      width: 100%;
+    }
+  }
+
+  .back-home-link {
+    font-size: $font-size-base;
+    text-decoration: underline;
+    @include margin-top($margin-medium);
+
+    @media (max-width:$breakpoint-mobile) {
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+}
