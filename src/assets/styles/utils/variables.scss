@@ -2,7 +2,7 @@
 $primary-color: #ffffff;
 $secondary-color: #000000;
 $tertiary-color: #ff6060;
-$quaternary-color: #F6F6F6;
+$quaternary-color: #f6f6f6;
 
 // Font
 $font-family-base: "Montserrat", sans-serif;
@@ -12,14 +12,13 @@ $font-size-medium: 24px;
 $font-size-small: 12px;
 
 // Widht and height
-$main-width: 1240px; 
+$main-width: 1240px;
 $margin-vertical: 30px;
 $banner-height: 223px;
 $banner-height-tablet: 170px;
 $banner-height-mobile: 111px;
 $card-size: 340px;
-$carousel-button-width: 48.68px;
-$carousel-button-height: 79.2px;
+
 $footer-height: 209px;
 
 // Spacing
@@ -38,10 +37,7 @@ $border-radius-small: 5px;
 $border-radius-medium: 10px;
 $border-radius-large: 25px;
 
-// Others
-$collapse-icon-size: 32px;
-$collapse-icon-size-mobile: 16px;
-
+//
 $transition-duration: 0.3s;
 
 // Additional variables for responsive
