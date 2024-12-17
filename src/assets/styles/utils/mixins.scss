@@ -61,10 +61,6 @@
   padding: $size;
 }
 
-@mixin margin-collapse($size: $margin-medium) {
-  margin: $size auto;
-}
-
 // Border-radius mixin
 @mixin border-radius($size: $border-radius-medium) {
   border-radius: $size;

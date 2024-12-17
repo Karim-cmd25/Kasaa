@@ -8,8 +8,11 @@
 
 main {
   @include margin-auto;
-  @include flex-center(column);
+  @include flex-center(row);
+  flex-wrap: wrap;
+
   margin: $margin-small;
+  padding: 50px;
 }
 
 ul {
