@@ -1,0 +1,172 @@
+@import "../settings";
+
+// Container principal
+.details__host-container {
+  @include flex-center(row, space-between);
+  @include margin-top($margin-medium);
+  max-width: $main-width;
+  width: 100%;
+  gap: $gap-medium;
+  height: 20px;
+
+  @media (max-width: $breakpoint-mobile) {
+    margin-top: 0;
+  }
+}
+
+// Contenu du host
+.details__host-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+
+  @media (max-width: $breakpoint-mobile) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Infos liées au details (titre et description)
+.details {
+  &__title {
+    color: $tertiary-color;
+    font-weight: 500;
+    text-align: left;
+    font-size: $font-size-large;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &__location {
+    text-align: left;
+    font-size: $font-size-base;
+    @include margin-top($margin-small);
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 14px;
+    }
+  }
+}
+
+// Host information
+.details__host {
+  &__container {
+    @include flex-center(column, center, flex-end);
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__info-text {
+    color: $tertiary-color;
+    font-size: $font-size-base;
+    margin-right: 10px;
+    text-align: right;
+    width: 80px;
+    height: 52px;
+    padding-top: 5px;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: $font-size-small;
+      width: 40px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__info-image {
+    @include border-radius(50%);
+    width: 64px;
+    height: 64px;
+
+    @media (max-width: $breakpoint-mobile) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+// Rating et évaluations
+.details__rating {
+  @include flex-center(row, space-between);
+  @include margin-top($margin-small);
+  @include margin-bottom($margin-small);
+
+  & img {
+    @media (max-width: $breakpoint-mobile) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// Tags associés à l'annonce
+.details__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap-small;
+  @include margin-top($margin-small);
+  @include margin-bottom($margin-small);
+}
+
+.details__tag {
+  background-color: $tertiary-color;
+  color: $primary-color;
+  @include padding(5px 10px);
+  @include border-radius(25px);
+  font-size: $font-size-small;
+  display: inline-block;
+  min-width: 115px; // Largeur minimale
+  max-width: auto; // Permet à l'élément de s'étendre selon le texte
+  width: auto; // Laisse la largeur se calculer automatiquement en fonction du contenu
+
+  @media (max-width: $breakpoint-mobile) {
+    min-width: 84px; // Largeur minimale en mode mobile
+    font-size: 10px;
+  }
+}
+
+// Section collapsible pour les détails supplémentaires
+.details__collapse-section {
+  @include flex-center(row, space-between);
+  width: 100%;
+  @include margin-auto;
+  gap: $gap-medium;
+  align-items: stretch; /* Permet aux collapses d'avoir la même hauteur */
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .details__collapse {
+    flex: 1;
+    min-width: 0;
+    flex-grow: 1;
+
+    &__content {
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background-color: $quaternary-color;
+      @include border-radius(0 0 $border-radius-small $border-radius-small);
+
+      &.open {
+        max-height: 300px;
+      }
+
+      &.closed {
+        max-height: 0;
+      }
+    }
+  }
+}
