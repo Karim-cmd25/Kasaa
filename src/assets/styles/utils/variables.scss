@@ -37,9 +37,6 @@ $border-radius-small: 5px;
 $border-radius-medium: 10px;
 $border-radius-large: 25px;
 
-//
-$transition-duration: 0.3s;
-
 // Additional variables for responsive
 // Breakpoints
 $breakpoint-mobile: 480px;
@@ -54,3 +51,9 @@ $banner-text-size-tablet: 36px;
 $banner-mobile-width: 335px;
 $banner-tablet-widht: 768px;
 $banner-desktop-widht: 1240px;
+
+$transition-duration: 0.3s; // Défini la durée de la transition
+
+$collapse-icon-size: 24px; // Définir la taille de l'icône (exemple en pixels)
+
+$collapse-icon-size-mobile: 18px; // Définir la taille de l'icône sur mobile (exemple)
