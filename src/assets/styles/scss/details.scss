@@ -1,172 +1,197 @@
-@import "../settings";
+// Fichier SCSS pour les détails de la page
 
-// Container principal
-.details__host-container {
-  @include flex-center(row, space-between);
-  @include margin-top($margin-medium);
-  max-width: $main-width;
-  width: 100%;
-  gap: $gap-medium;
-  height: 20px;
+@import "../settings"; // Assurez-vous que ce fichier est bien importé dans le bon répertoire
 
-  @media (max-width: $breakpoint-mobile) {
-    margin-top: 0;
-  }
+// Conteneur de la page de détails
+.details__page {
+  font-family: "Arial", sans-serif;
+  color: #333;
 }
 
-// Contenu du host
-.details__host-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-
-  @media (max-width: $breakpoint-mobile) {
-    display: flex;
-    flex-direction: column;
-  }
+// Conteneur principal de la section de détail
+.details__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
 }
 
-// Infos liées au details (titre et description)
-.details {
-  &__title {
-    color: $tertiary-color;
-    font-weight: 500;
-    text-align: left;
-    font-size: $font-size-large;
-
-    @media (max-width: $breakpoint-mobile) {
-      font-size: $font-size-base;
-    }
-  }
-
-  &__location {
-    text-align: left;
-    font-size: $font-size-base;
-    @include margin-top($margin-small);
-
-    @media (max-width: $breakpoint-mobile) {
-      font-size: 14px;
-    }
-  }
+/* Conteneur de la description et de l'hôte */
+.details__main-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-// Host information
-.details__host {
-  &__container {
-    @include flex-center(column, center, flex-end);
-
-    @media (max-width: $breakpoint-mobile) {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-    }
-  }
-
-  &__info {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  &__info-text {
-    color: $tertiary-color;
-    font-size: $font-size-base;
-    margin-right: 10px;
-    text-align: right;
-    width: 80px;
-    height: 52px;
-    padding-top: 5px;
-
-    @media (max-width: $breakpoint-mobile) {
-      font-size: $font-size-small;
-      width: 40px;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  &__info-image {
-    @include border-radius(50%);
-    width: 64px;
-    height: 64px;
-
-    @media (max-width: $breakpoint-mobile) {
-      width: 32px;
-      height: 32px;
-    }
-  }
+/* Section description */
+.details__description {
+  flex: 2;
+  max-width: 60%;
 }
 
-// Rating et évaluations
-.details__rating {
-  @include flex-center(row, space-between);
-  @include margin-top($margin-small);
-  @include margin-bottom($margin-small);
-
-  & img {
-    @media (max-width: $breakpoint-mobile) {
-      width: 18px;
-      height: 18px;
-    }
-  }
+/* Titre de la description */
+.details__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ff6060;
+  display: flex;
+  justify-content: flex-start; /* Aligner à gauche */
+  gap: 1rem; /* Espacement entre le titre et les autres éléments si nécessaire */
 }
 
-// Tags associés à l'annonce
+/* Image de la description */
+.details__image {
+  width: 1240px;
+  height: 415px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Texte de la description */
+.details__text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Tags dans des rectangles roses avec border-radius */
 .details__tags {
   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: $gap-small;
-  @include margin-top($margin-small);
-  @include margin-bottom($margin-small);
+  margin-top: 1rem;
 }
 
 .details__tag {
-  background-color: $tertiary-color;
-  color: $primary-color;
-  @include padding(5px 10px);
-  @include border-radius(25px);
-  font-size: $font-size-small;
-  display: inline-block;
-  min-width: 115px; // Largeur minimale
-  max-width: auto; // Permet à l'élément de s'étendre selon le texte
-  width: auto; // Laisse la largeur se calculer automatiquement en fonction du contenu
+  background-color: #ff6060;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
 
-  @media (max-width: $breakpoint-mobile) {
-    min-width: 84px; // Largeur minimale en mode mobile
-    font-size: 10px;
+/* Section de l'hôte */
+.details__host {
+  flex: 1;
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  margin-top: 450px; /* Ajuste la position pour les éléments */
+}
+
+/* Photo de l'hôte */
+.details__host-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px; /* Espace entre l'image et le nom */
+}
+
+/* Nom de l'hôte */
+.details__host-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ff6060;
+}
+
+/* Section des étoiles (note) */
+.details__host-rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Étoiles */
+.details__star {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  background-color: #ff6060;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  /* Le code ci-dessus crée une étoile en utilisant clip-path */
+}
+
+/* Section des équipements */
+.details__equipments {
+  margin-top: 3rem;
+}
+
+.details__equipments-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Liste des équipements */
+.details__equipments-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.details__equipments-item {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Collapse Section (réduction de la largeur des collapses à 100px) */
+.details__collapse-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.details__collapse {
+  flex: 1;
+  min-width: 100px; /* Largeur des collapses de description et équipements */
+  flex-grow: 1;
+  margin-top: 20px;
+
+  .collapse {
+    flex: 1;
+    min-width: 100px;
+    max-width: 100px;
   }
 }
 
-// Section collapsible pour les détails supplémentaires
-.details__collapse-section {
-  @include flex-center(row, space-between);
-  width: 100%;
-  @include margin-auto;
-  gap: $gap-medium;
-  align-items: stretch; /* Permet aux collapses d'avoir la même hauteur */
-
-  @media (max-width: $breakpoint-mobile) {
+/* Responsivité */
+@media (max-width: $breakpoint-mobile) {
+  .details__collapse-container {
     flex-direction: column;
     margin-top: 10px;
   }
 
   .details__collapse {
-    flex: 1;
-    min-width: 0;
-    flex-grow: 1;
+    max-width: 100%; // Les collapses prennent toute la largeur en mode mobile
+  }
 
-    &__content {
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      background-color: $quaternary-color;
-      @include border-radius(0 0 $border-radius-small $border-radius-small);
+  .details__title {
+    font-size: $font-size-base;
+  }
 
-      &.open {
-        max-height: 300px;
-      }
+  .details__image {
+    width: 100%;
+  }
 
-      &.closed {
-        max-height: 0;
-      }
-    }
+  .details__host-name {
+    font-size: 1rem;
   }
 }

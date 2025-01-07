@@ -6,6 +6,11 @@
   font-family: $font-family-base;
 }
 
+body {
+  margin: auto;
+  max-width: 1440px;
+}
+
 main {
   @include margin-auto;
   @include flex-center(row);
