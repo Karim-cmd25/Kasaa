@@ -26,6 +26,10 @@
     h2 {
       font-size: $font-size-base;
     }
+
+    &.open {
+      background-color: darken($tertiary-color, 10%);
+    }
   }
 
   &__icon {
@@ -49,9 +53,7 @@
     padding: 0 $padding-medium;
     @include transition(max-height, $transition-duration, ease-out);
     @include transition(padding, $transition-duration, ease-out);
-
-    /* Couleur de fond par défaut, elle doit rester rose ! */
-    background-color: #ff6060 !important; /* couleur rose */
+    background-color: $quaternary-color;
     @include border-radius(0 0 $border-radius-small $border-radius-small);
 
     & p,
@@ -62,29 +64,10 @@
         @include font-base($font-size-small, 400, $secondary-color);
       }
     }
-  }
 
-  /* Surcharge les états dynamiques du collapse */
-  &.collapse.show,
-  &.collapse.open {
-    .collapse__content {
-      background-color: #ff6060 !important; /* Assurez-vous que la couleur de fond reste rose même après ouverture */
-    }
-  }
-
-  /* Surcharge pour l'activation via JavaScript (cas du collapse avec `active`) */
-  &.collapse.active {
-    .collapse__content {
-      background-color: #ff6060 !important; /* Maintien de la couleur rose */
-    }
-  }
-
-  /* Cibler spécifiquement les collapses dans l'état ouvert et ceux en focus */
-  &.collapse.open,
-  &.collapse.show,
-  &.collapse.open.show {
-    .collapse__content {
-      background-color: #ff6060 !important; /* Toujours rose en état ouvert */
+    &.open {
+      max-height: 300px;
+      padding: $padding-small $padding-medium;
     }
   }
 }

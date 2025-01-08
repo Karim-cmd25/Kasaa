@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  margin-right: 200px;
 }
 
 /* Conteneur de la description et de l'hôte */
@@ -18,13 +19,11 @@
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 2rem;
 }
 
 /* Section description */
 .details__description {
   flex: 2;
-  max-width: 60%;
 }
 
 /* Titre de la description */
@@ -36,6 +35,7 @@
   display: flex;
   justify-content: flex-start; /* Aligner à gauche */
   gap: 1rem; /* Espacement entre le titre et les autres éléments si nécessaire */
+  margin-left: 30px;
 }
 
 /* Image de la description */
@@ -58,6 +58,7 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 1rem;
+  margin-left: 30px;
 }
 
 .details__tag {
@@ -74,64 +75,72 @@
   max-width: 35%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Aligne les éléments à gauche */
   justify-content: flex-start;
-  position: relative;
-  margin-top: 450px; /* Ajuste la position pour les éléments */
-}
+  margin-left: -400px;
+  margin-top: 30px; /* Ajuste la position pour les éléments */
 
-/* Photo de l'hôte */
-.details__host-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px; /* Espace entre l'image et le nom */
-}
+  /* Container pour le nom et la photo de l'hôte */
+  .details__host-info {
+    display: flex;
+    align-items: center; /* Aligne verticalement le texte et l'image */
+    gap: 10px; /* Espacement entre l'image et le nom */
+    margin-bottom: 1rem;
+    flex-direction: row-reverse; /* Inverse l'ordre : nom à gauche et image à droite */
+    margin-top: 420px;
+  }
 
-/* Nom de l'hôte */
-.details__host-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 1rem;
-  color: #ff6060;
-}
+  /* Photo de l'hôte */
+  .details__host-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
 
-/* Section des étoiles (note) */
-.details__host-rating {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
+  /* Nom de l'hôte */
+  .details__host-name {
+    font-size: 1.2rem;
 
-/* Étoiles */
-.details__star {
-  width: 20px;
-  height: 20px;
-  margin: 0 2px;
-  background-color: #ff6060;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  /* Le code ci-dessus crée une étoile en utilisant clip-path */
+    text-align: left; /* Aligner le nom à gauche */
+    color: #ff6060;
+  }
+
+  /* Section des étoiles */
+  .details__host-rating {
+    display: flex;
+    justify-content: flex-start; /* Aligner les étoiles à gauche */
+    margin-bottom: 1rem;
+  }
+
+  /* Étoiles */
+  .details__star {
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    background-color: #ff6060;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }
 }
 
 /* Section des équipements */
 .details__equipments {
   flex-direction: row;
   display: flex;
-  gap: 150px;
-  margin-right: 150px;
+  gap: 50px;
+  margin-left: 100px;
 }
 
 .details__equipments-title {
@@ -171,8 +180,8 @@
   .collapse,
   .collapse.show,
   .collapse.active {
-    background-color: #ff6060 !important; /* Assurez-vous que la couleur de fond reste rose */
-    border-color: #ff6060 !important; /* Maintien la bordure rose même après ouverture */
+    background-color: #ff6060 !important;
+    border-color: #ff6060 !important;
   }
 }
 
@@ -180,7 +189,7 @@
 .details__location {
   font-size: 1.1rem; /* Taille de la police */
 
-  color: black; /* Couleur rose */
+  color: black; /* Couleur noire */
   margin-top: 10px; /* Espacement autour */
 
   p {
@@ -190,6 +199,7 @@
     line-height: 1.5;
     display: flex;
     justify-content: flex-start;
+    margin-left: 30px;
   }
 }
 

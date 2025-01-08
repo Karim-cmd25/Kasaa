@@ -3,40 +3,41 @@
 .carousel {
   @include flex-center;
   position: relative;
+  width: 100%; // Ajouté pour s'assurer que le carrousel occupe toute la largeur disponible
 
   &__button {
     width: $carousel-button-width;
-
-    transform: scale(1);
+    height: $carousel-button-height; // Spécifie également la hauteur du bouton
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); // Centrage vertical
     cursor: pointer;
     @include transition;
 
     &-left {
-      rotate: 180deg;
-      position: absolute;
-      left: 23.36px;
+      transform: rotate(180deg); // Correction de la syntaxe de la rotation
+      left: 10px; // Positionne le bouton gauche à gauche
 
       @media (max-width: $breakpoint-mobile) {
-        width: 15px;
-        height: 24px;
+        width: 20px; // Ajuste la taille sur mobile
+        height: 20px; // Ajuste la hauteur sur mobile
       }
 
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.1) rotate(180deg); // Assure que le bouton gauche reste tourné même avec l'effet hover
       }
     }
 
     &-right {
-      position: absolute;
-      right: -350px;
+      right: 10px; // Positionne le bouton droit à droite
 
       @media (max-width: $breakpoint-mobile) {
-        width: 15px;
-        height: 24px;
+        width: 20px; // Ajuste la taille sur mobile
+        height: 20px; // Ajuste la hauteur sur mobile
       }
 
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.1); // Effet de survol
       }
     }
   }
@@ -44,6 +45,7 @@
   &__image-container {
     width: $main-width;
     height: 415px;
+    overflow: hidden; // Permet de masquer les parties de l'image qui dépassent
 
     @media (max-width: $breakpoint-mobile) {
       max-height: 255px;
@@ -51,23 +53,25 @@
   }
 
   &__image {
-    width: 1240px !important;
+    width: 1240px; // Utilisation de 100% pour que l'image occupe toute la largeur du conteneur
     height: 415px;
-    object-fit: cover;
+    object-fit: cover; // Assure que l'image remplit son conteneur sans déformer l'aspect
+
     @include border-radius($border-radius-large);
-    margin-left: 200px;
   }
 
   &__pagination {
     position: absolute;
     bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
     color: $primary-color;
     font-size: $font-size-base;
     width: 100px;
     height: 100px;
 
     @media (max-width: $breakpoint-mobile) {
-      display: none;
+      display: none; // Cacher la pagination sur mobile
     }
   }
 }

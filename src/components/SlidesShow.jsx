@@ -19,14 +19,17 @@ const SlideShow = ({ pictures }) => {
 
   return (
     <div className="carousel">
+      {/* Afficher le bouton de gauche seulement si plus d'une image */}
       {pictures.length > 1 && (
         <img
           src={Vector}
-          onClick={goToPrevious}
+          onClick={goToPrevious} // Fonction pour aller à l'image précédente
           className="carousel__button carousel__button-left"
-        ></img>
+          alt="Previous Slide"
+        />
       )}
 
+      {/* Image du carousel */}
       <div className="carousel__image-container">
         <img
           src={pictures[currentIndex]}
@@ -35,13 +38,17 @@ const SlideShow = ({ pictures }) => {
         />
       </div>
 
+      {/* Afficher le bouton de droite seulement si plus d'une image */}
       {pictures.length > 1 && (
         <img
           src={Vector}
-          onClick={goToNext}
+          onClick={goToNext} // Fonction pour aller à l'image suivante
           className="carousel__button carousel__button-right"
-        ></img>
+          alt="Next Slide"
+        />
       )}
+
+      {/* Pagination */}
       <div className="carousel__pagination">
         {currentIndex + 1} / {pictures.length}
       </div>
