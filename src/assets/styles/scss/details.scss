@@ -1,5 +1,3 @@
-// Fichier SCSS pour les détails de la page
-
 @import "../settings"; // Assurez-vous que ce fichier est bien importé dans le bon répertoire
 
 // Conteneur de la page de détails
@@ -12,7 +10,6 @@
 .details__content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   padding: 2rem;
 }
 
@@ -43,8 +40,8 @@
 
 /* Image de la description */
 .details__image {
-  width: 1240px;
-  height: 415px !important;
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -131,7 +128,10 @@
 
 /* Section des équipements */
 .details__equipments {
-  margin-top: 3rem;
+  flex-direction: row;
+  display: flex;
+  gap: 150px;
+  margin-right: 150px;
 }
 
 .details__equipments-title {
@@ -151,7 +151,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Collapse Section (réduction de la largeur des collapses à 100px) */
+/* Collapse Section */
 .details__collapse-container {
   display: flex;
   gap: 1rem;
@@ -160,15 +160,36 @@
 }
 
 .details__collapse {
+  background-color: #ff6060; /* Couleur de fond rose */
+  border: 1px solid #ff6060; /* Bordure rose */
   flex: 1;
   min-width: 100px; /* Largeur des collapses de description et équipements */
   flex-grow: 1;
   margin-top: 20px;
 
-  .collapse {
-    flex: 1;
-    min-width: 100px;
-    max-width: 100px;
+  /* Cibler l'état ouvert (ou actif) du collapse */
+  .collapse,
+  .collapse.show,
+  .collapse.active {
+    background-color: #ff6060 !important; /* Assurez-vous que la couleur de fond reste rose */
+    border-color: #ff6060 !important; /* Maintien la bordure rose même après ouverture */
+  }
+}
+
+/* Nouveau style pour .details__location */
+.details__location {
+  font-size: 1.1rem; /* Taille de la police */
+
+  color: black; /* Couleur rose */
+  margin-top: 10px; /* Espacement autour */
+
+  p {
+    font-size: 1rem;
+    color: black;
+    margin: 0; /* Annuler tout margin par défaut */
+    line-height: 1.5;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 
@@ -193,5 +214,10 @@
 
   .details__host-name {
     font-size: 1rem;
+  }
+
+  .details__location {
+    font-size: bold;
+    width: 100%;
   }
 }

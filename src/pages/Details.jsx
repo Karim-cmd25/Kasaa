@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Collapse from "../components/Collapse"; // Importation du composant Collapse
 import "../assets/styles/scss/details.scss";
 import Rating from "../components/Rating"; // Assurez-vous que ce composant est utilisé correctement
+import Slideshow from "../components/SlidesShow"; // Import du composant Slideshow
 
 function Details() {
   const { id } = useParams(); // Récupère l'ID de la carte depuis l'URL
@@ -61,12 +62,9 @@ function Details() {
         {/* Conteneur Flexbox pour aligner la description à gauche et l'hôte à droite */}
         <div className="details__main-container">
           <section className="details__description">
-            {/* Image au-dessus du titre */}
-            <img
-              className="details__image"
-              src={location.cover}
-              alt={location.title}
-            />
+            {/* Affichage du slideshow pour les images */}
+            <Slideshow pictures={location.pictures} />
+
             <h1 className="details__title">{location.title}</h1>
             <section className="details__location">
               <p>{location.location}</p>
@@ -82,9 +80,6 @@ function Details() {
             </div>
 
             {/* Utilisation de Collapse pour la description */}
-            <Collapse title="Description">
-              <p className="details__text">{location.description}</p>
-            </Collapse>
           </section>
 
           {/* Partie Hôte alignée à droite */}
@@ -99,13 +94,16 @@ function Details() {
               <div className="details__host-name">{location.host.name}</div>
             </div>
             <div className="details__rating">
-              <Rating rating={location.rating} />{" "}
+              <Rating rating={location.rating} />
             </div>
           </section>
         </div>
 
         {/* Utilisation de Collapse pour les équipements */}
         <section className="details__equipments">
+          <Collapse title="Description">
+            <p className="details__text">{location.description}</p>
+          </Collapse>
           <Collapse title="Équipements">
             <ul className="details__equipments-list">
               {location.equipments.map((equip, index) => (

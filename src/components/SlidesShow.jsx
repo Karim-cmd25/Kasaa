@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Vector from "../assets/images/arrow/vector.png";
-import "../assets/styles/components/_carousel.scss";
+import "../assets/styles/scss/carrousel.scss";
 
 const SlideShow = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

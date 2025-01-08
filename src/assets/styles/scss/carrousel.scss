@@ -1,0 +1,73 @@
+@import "../settings";
+
+.carousel {
+  @include flex-center;
+  position: relative;
+
+  &__button {
+    width: $carousel-button-width;
+
+    transform: scale(1);
+    cursor: pointer;
+    @include transition;
+
+    &-left {
+      rotate: 180deg;
+      position: absolute;
+      left: 23.36px;
+
+      @media (max-width: $breakpoint-mobile) {
+        width: 15px;
+        height: 24px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &-right {
+      position: absolute;
+      right: -350px;
+
+      @media (max-width: $breakpoint-mobile) {
+        width: 15px;
+        height: 24px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__image-container {
+    width: $main-width;
+    height: 415px;
+
+    @media (max-width: $breakpoint-mobile) {
+      max-height: 255px;
+    }
+  }
+
+  &__image {
+    width: 1240px !important;
+    height: 415px;
+    object-fit: cover;
+    @include border-radius($border-radius-large);
+    margin-left: 200px;
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: -60px;
+    color: $primary-color;
+    font-size: $font-size-base;
+    width: 100px;
+    height: 100px;
+
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+}
