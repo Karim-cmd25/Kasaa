@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Import de useNavigate
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ import Slideshow from "../components/SlidesShow"; // Import du composant Slidesh
 
 function Details() {
   const { id } = useParams(); // Récupère l'ID de la carte depuis l'URL
+  const navigate = useNavigate(); // Utilisation de useNavigate pour la redirection
   const [location, setLocation] = useState(null);
   const [isLoading, setIsLoading] = useState(true); // Gestion de l'état de chargement
   const [error, setError] = useState(null); // Gestion des erreurs
@@ -30,17 +31,19 @@ function Details() {
         if (foundLocation) {
           setLocation(foundLocation); // Mise à jour de l'état avec les données trouvées
         } else {
-          setError("Aucun logement trouvé avec cet ID");
+          // Redirige l'utilisateur vers la page d'erreur si l'ID n'est pas trouvé
+          navigate("/404");
         }
       } catch (err) {
         setError(err.message); // Gestion des erreurs de la requête
+        navigate("/404"); // Redirige aussi vers la page d'erreur en cas de problème avec la requête
       } finally {
         setIsLoading(false); // Fin du chargement
       }
     };
 
     fetchData();
-  }, [id]); // On refait la requête dès que l'ID change.
+  }, [id, navigate]); // Ajout de navigate pour s'assurer qu'il est bien inclus dans les dépendances
 
   if (isLoading) {
     return <div className="loading">Chargement...</div>; // Ajout d'une classe de style "loading"
@@ -51,7 +54,7 @@ function Details() {
   }
 
   if (!location) {
-    return <div className="no-page"> </div>;
+    return <div className="no-page"> </div>; // Cette ligne est redondante, car navigate() fera déjà la redirection
   }
 
   return (

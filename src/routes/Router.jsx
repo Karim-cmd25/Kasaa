@@ -12,7 +12,6 @@ const Router = () => {
       <Route path="/" element={<Home />} />
       <Route path="/details/:id" element={<Details />} />
       <Route path="/about" element={<About />} />{" "}
-      {/* Ajoute la route pour About */}
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
