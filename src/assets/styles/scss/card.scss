@@ -47,13 +47,48 @@
     margin-bottom: 20px;
     margin-left: 20px;
 
-    @media (max-width: $breakpoint-mobile) {
+    @media (max-width: 768px) and (min-width: 368px) {
+      font-size: 1.2rem; // Taille du texte pour les petits écrans
+      margin-left: 15px; // Réduit le margin pour le titre
+      margin-bottom: 15px; // Ajuste la marge en bas
+    }
+
+    @media (max-width: 368px) {
+      font-size: 1.4rem; // Agrandit la taille du texte pour mieux occuper l'espace
+      margin-left: 10px; // Réduit légèrement la marge gauche
+      margin-bottom: 10px; // Réduit la marge en bas pour donner plus d'espace à la carte
     }
   }
 
+  // Style pour les écrans mobiles (moins de 768px)
   @media (max-width: $breakpoint-mobile) {
     width: 100%;
     max-width: none;
     aspect-ratio: auto;
+    margin: 15px; // Réduit la marge sur mobile pour économiser de l'espace
+  }
+
+  // Style pour les écrans entre 768px et 368px
+  @media (max-width: 768px) and (min-width: 368px) {
+    .card__image {
+      max-width: 355px; // L'image prend toute la largeur disponible
+      height: 255px; // La hauteur de l'image est ajustée pour garder les proportions
+      padding: 10px; // Réduit un peu le padding pour laisser plus d'espace
+      border-radius: 20px;
+    }
+  }
+
+  // Style pour les écrans plus petits que 368px (smartphones très petits)
+  @media (max-width: 368px) {
+    .card__image {
+      max-width: 355px; // L'image prend toute la largeur disponible
+      height: 200px; // Fixe une hauteur pour l'image afin de mieux gérer les petits écrans
+      object-fit: cover; // Assure que l'image couvre bien la zone sans déformer l'aspect
+      padding: 5px; // Réduit encore plus le padding pour économiser de l'espace
+    }
+
+    // Réduire la taille de la carte à presque toute la largeur de l'écran
+    width: 100%;
+    max-width: none; // Assure que la carte occupe toute la largeur disponible
   }
 }

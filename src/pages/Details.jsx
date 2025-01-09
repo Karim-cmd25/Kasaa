@@ -78,8 +78,6 @@ function Details() {
                 </span>
               ))}
             </div>
-
-            {/* Utilisation de Collapse pour la description */}
           </section>
 
           {/* Partie Hôte alignée à droite */}
@@ -104,6 +102,7 @@ function Details() {
           <Collapse title="Description">
             <p className="details__text">{location.description}</p>
           </Collapse>
+
           <Collapse title="Équipements">
             <ul className="details__equipments-list">
               {location.equipments.map((equip, index) => (
