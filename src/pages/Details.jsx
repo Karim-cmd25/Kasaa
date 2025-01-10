@@ -6,6 +6,7 @@ import Collapse from "../components/Collapse"; // Importation du composant Colla
 import "../assets/styles/scss/details.scss";
 import Rating from "../components/Rating"; // Assurez-vous que ce composant est utilisé correctement
 import Slideshow from "../components/SlidesShow"; // Import du composant Slideshow
+import Error from "./NoPage";
 
 function Details() {
   const { id } = useParams(); // Récupère l'ID de la carte depuis l'URL
@@ -15,6 +16,7 @@ function Details() {
   const [error, setError] = useState(null); // Gestion des erreurs
 
   useEffect(() => {
+    //gérer le rendu //
     const fetchData = async () => {
       setIsLoading(true); // Début du chargement
       setError(null); // Réinitialise l'erreur au cas où
@@ -50,15 +52,15 @@ function Details() {
   }
 
   if (error) {
-    return <div className="error">{error}</div>; // Affichage d'une erreur si la requête échoue
+    return <Error />; // Affichage d'une erreur si la requête échoue
   }
 
   if (!location) {
-    return <div className="no-page"> </div>; // Cette ligne est redondante, car navigate() fera déjà la redirection
+    return <Error />; // Cette ligne est redondante, car navigate() fera déjà la redirection
   }
 
   return (
-    <div className="details__page">
+    <>
       <Header />
 
       <main className="details__content">
@@ -119,7 +121,7 @@ function Details() {
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 }
 

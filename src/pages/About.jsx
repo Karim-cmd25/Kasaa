@@ -7,7 +7,7 @@ import aboutImage from "../assets/images/banner/bannerAbout.webp";
 
 function About() {
   return (
-    <div className="about-page">
+    <>
       <Header />
       <main>
         <Banner
@@ -51,7 +51,7 @@ function About() {
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

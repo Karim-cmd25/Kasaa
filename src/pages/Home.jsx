@@ -23,13 +23,13 @@ function Home() {
   }, []); // []); deuxiéme argument de useEffect, si il change la fonction est exécuté à nouveau
 
   return (
-    <div>
+    <>
       <Header />
       <main>
         <Banner
           imageUrl={HomeImage}
           altText="Paysage montagnes "
-          title="Chez vous, partout ailleurs"
+          title="Chez vous, partout et ailleurs"
         />
         {locations.map((location) => (
           <Card
@@ -42,7 +42,7 @@ function Home() {
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 }
 
