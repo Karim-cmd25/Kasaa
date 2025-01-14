@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Collapse from "../components/Collapse"; // Importation du composant Collapse
 import "../assets/styles/scss/details.scss";
-import Rating from "../components/Rating"; // Assurez-vous que ce composant est utilisé correctement
+import Rating from "../components/Rating"; //
 import Slideshow from "../components/SlidesShow"; // Import du composant Slideshow
 import Error from "./NoPage";
 
@@ -54,7 +54,7 @@ function Details() {
   }
 
   if (!location) {
-    return <Error />; // Cette ligne est redondante, car navigate() fera déjà la redirection
+    return <Error />; //
   }
 
   return (
