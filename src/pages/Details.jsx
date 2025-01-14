@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom"; // Import de useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -16,7 +16,6 @@ function Details() {
   const [error, setError] = useState(null); // Gestion des erreurs
 
   useEffect(() => {
-    //gérer le rendu //
     const fetchData = async () => {
       setIsLoading(true); // Début du chargement
       setError(null); // Réinitialise l'erreur au cas où
@@ -33,8 +32,7 @@ function Details() {
         if (foundLocation) {
           setLocation(foundLocation); // Mise à jour de l'état avec les données trouvées
         } else {
-          // Redirige l'utilisateur vers la page d'erreur si l'ID n'est pas trouvé
-          navigate("/404");
+          navigate("/404"); // Redirige l'utilisateur vers la page d'erreur si l'ID n'est pas trouvé
         }
       } catch (err) {
         setError(err.message); // Gestion des erreurs de la requête
@@ -64,17 +62,17 @@ function Details() {
       <Header />
 
       <main className="details__content">
-        {/* Conteneur Flexbox pour aligner la description à gauche et l'hôte à droite */}
         <div className="details__main-container">
           <section className="details__description">
-            {/* Affichage du slideshow pour les images */}
             <Slideshow pictures={location.pictures} />
-
             <h1 className="details__title">{location.title}</h1>
             <section className="details__location">
               <p>{location.location}</p>
             </section>
+          </section>
 
+          {/* Conteneur pour les tags et l'hôte */}
+          <section className="details__tags-and-host">
             {/* Affichage des tags */}
             <div className="details__tags">
               {location.tags.map((tag, index) => (
@@ -83,21 +81,20 @@ function Details() {
                 </span>
               ))}
             </div>
-          </section>
 
-          {/* Partie Hôte alignée à droite */}
-          <section className="details__host">
-            <div className="details__host-info">
-              <img
-                className="details__host-image"
-                src={location.host.picture}
-                alt={location.host.name}
-              />
-
-              <div className="details__host-name">{location.host.name}</div>
-            </div>
-            <div className="details__rating">
-              <Rating rating={location.rating} />
+            {/* Section de l'hôte et de la note */}
+            <div className="details__host">
+              <div className="details__host-info">
+                <img
+                  className="details__host-image"
+                  src={location.host.picture}
+                  alt={location.host.name}
+                />
+                <div className="details__host-name">{location.host.name}</div>
+              </div>
+              <div className="details__rating">
+                <Rating rating={location.rating} />
+              </div>
             </div>
           </section>
         </div>

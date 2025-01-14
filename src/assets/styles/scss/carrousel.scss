@@ -1,4 +1,4 @@
-@import "../settings";
+@import "../settings"; // Assurez-vous que ce fichier est bien importé dans le bon répertoire
 
 .carousel {
   @include flex-center;
@@ -21,6 +21,7 @@
       @media (max-width: $breakpoint-mobile) {
         width: 20px; // Ajuste la taille sur mobile
         height: 20px; // Ajuste la hauteur sur mobile
+        left: 5px; // Ajuste l'espace à gauche sur mobile
       }
 
       &:hover {
@@ -34,6 +35,7 @@
       @media (max-width: $breakpoint-mobile) {
         width: 20px; // Ajuste la taille sur mobile
         height: 20px; // Ajuste la hauteur sur mobile
+        right: 5px; // Ajuste l'espace à droite sur mobile
       }
 
       &:hover {
@@ -43,21 +45,25 @@
   }
 
   &__image-container {
-    width: $main-width;
-    height: 415px;
+    height: 450px;
     overflow: hidden; // Permet de masquer les parties de l'image qui dépassent
-
+    border-radius: 25px;
     @media (max-width: $breakpoint-mobile) {
-      max-height: 255px;
     }
   }
 
+  .carousel__image {
+    object-fit: cover;
+    border-radius: 25px;
+  }
+
   &__image {
-    width: 1240px; // Utilisation de 100% pour que l'image occupe toute la largeur du conteneur
-    height: 415px;
     object-fit: cover; // Assure que l'image remplit son conteneur sans déformer l'aspect
 
     @include border-radius($border-radius-large);
+
+    @media (max-width: $breakpoint-mobile) {
+    }
   }
 
   &__pagination {
@@ -75,3 +81,6 @@
     }
   }
 }
+
+// Variables pour le breakpoint mobile (ajuster selon ton projet)
+$breakpoint-mobile: 768px !default;

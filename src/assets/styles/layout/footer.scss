@@ -1,35 +1,36 @@
-@import '../settings';
+@import "../settings";
 
 .footer {
-@include flex-center(column);
+  @include flex-center(column);
   background-color: $secondary-color;
   color: $primary-color;
   width: 100%;
   height: $footer-height;
-  @include margin-top($margin-medium);
+
   padding: 20px;
 
   @media (max-width: $breakpoint-mobile) {
-    margin: auto; 
-   }  
+    margin: auto;
+    max-width: 700px; // Définit la largeur du footer à 700px sur mobile
+    height: 400px;
+  }
 
   &__logo {
     @include logo-size(122px, 40px); // Taille par défaut
-    @include margin-auto; 
+    @include margin-auto;
 
     @media (max-width: $breakpoint-mobile) {
-     margin: 20px; 
-    }  
+      margin: 20px;
+    }
   }
 
   &__text-copyright {
     font-size: $font-size-medium;
 
     @media (max-width: $breakpoint-mobile) {
-     font-size: $font-size-small;
-     line-height: 18px;
-     width: 100px;
-    }  
-
+      font-size: $font-size-small;
+      line-height: 18px;
+      width: 100%; // Ajuste la largeur du texte à 100% de son parent
+    }
   }
 }

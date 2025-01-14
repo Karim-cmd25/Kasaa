@@ -28,7 +28,7 @@
     }
 
     &.open {
-      background-color: ($tertiary-color);
+      background-color: ($tertiary-color, 10%);
     }
   }
 

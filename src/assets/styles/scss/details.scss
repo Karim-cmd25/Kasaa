@@ -6,15 +6,21 @@
 .details__content {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  margin-right: 200px;
+}
+
+.card {
 }
 
 /* Conteneur de la description et de l'hôte */
 .details__main-container {
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+
+  flex-direction: column;
+}
+
+.details__tags-and-host {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Section description */
@@ -29,9 +35,9 @@
   margin-bottom: 1rem;
   color: #ff6060;
   display: flex;
+  margin-top: 20px;
   justify-content: flex-start; /* Aligner à gauche */
   gap: 1rem; /* Espacement entre le titre et les autres éléments si nécessaire */
-  margin-left: 30px;
 }
 
 /* Image de la description */
@@ -54,7 +60,6 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 1rem;
-  margin-left: 30px;
 }
 
 .details__tag {
@@ -67,23 +72,16 @@
 
 /* Section de l'hôte */
 .details__host {
-  flex: 1;
-  max-width: 35%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligne les éléments à gauche */
-  justify-content: flex-start;
-  margin-left: -250px;
-  margin-top: 30px; /* Ajuste la position pour les éléments */
 
   /* Container pour le nom et la photo de l'hôte */
   .details__host-info {
     display: flex;
     align-items: center; /* Aligne verticalement le texte et l'image */
     gap: 10px; /* Espacement entre l'image et le nom */
-    margin-bottom: 1rem;
+
     flex-direction: row-reverse; /* Inverse l'ordre : nom à gauche et image à droite */
-    margin-top: 420px;
   }
 
   /* Photo de l'hôte */
@@ -135,8 +133,7 @@
 .details__equipments {
   flex-direction: row;
   display: flex;
-  gap: 50px;
-  margin-left: 100px;
+  gap: 20px;
 }
 
 .details__equipments-title {
@@ -165,7 +162,7 @@
 }
 
 .details__collapse {
-  background-color: #ff6060; /* Couleur de fond rose */
+  background-color: #ff6060 !important; /* Couleur de fond rose */
   border: 1px solid #ff6060; /* Bordure rose */
   flex: 1;
   min-width: 100px; /* Largeur des collapses de description et équipements */
@@ -189,13 +186,10 @@
   margin-top: 10px; /* Espacement autour */
 
   p {
-    font-size: 1rem;
     color: black;
     margin: 0; /* Annuler tout margin par défaut */
-    line-height: 1.5;
+
     display: flex;
-    justify-content: flex-start;
-    margin-left: 30px;
   }
 }
 
@@ -210,8 +204,34 @@
     max-width: 100%; // Les collapses prennent toute la largeur en mode mobile
   }
 
+  .details__host .details__host-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    flex-direction: row-reverse;
+  }
+
+  .details__main-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
   .details__title {
     font-size: $font-size-base;
+    margin-top: 0px;
+    font-weight: normal;
+  }
+
+  .details__host {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+
+    margin-top: 20px;
   }
 
   .details__image {
@@ -222,8 +242,21 @@
     font-size: 1rem;
   }
 
+  .details__tags {
+  }
+
   .details__location {
     font-size: bold;
     width: 100%;
+  }
+
+  .details__equipments {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .details__content {
+    display: flex;
+    flex-direction: column;
   }
 }
