@@ -18,6 +18,7 @@
       transform: rotate(180deg); // Correction de la syntaxe de la rotation
       left: 10px; // Positionne le bouton gauche à gauche
 
+      // Réglages spécifiques au mobile
       @media (max-width: $breakpoint-mobile) {
         width: 20px; // Ajuste la taille sur mobile
         height: 20px; // Ajuste la hauteur sur mobile
@@ -32,6 +33,7 @@
     &-right {
       right: 10px; // Positionne le bouton droit à droite
 
+      // Réglages spécifiques au mobile
       @media (max-width: $breakpoint-mobile) {
         width: 20px; // Ajuste la taille sur mobile
         height: 20px; // Ajuste la hauteur sur mobile
@@ -48,7 +50,11 @@
     height: 450px;
     overflow: hidden; // Permet de masquer les parties de l'image qui dépassent
     border-radius: 25px;
+
+    // On garde ce réglage ici car l'aspect desktop doit être intact
+
     @media (max-width: $breakpoint-mobile) {
+      height: 300px; // Ajuste la taille de l'image pour les écrans mobiles
     }
   }
 
@@ -59,10 +65,13 @@
 
   &__image {
     object-fit: cover; // Assure que l'image remplit son conteneur sans déformer l'aspect
-
     @include border-radius($border-radius-large);
 
+    // Ajuste les réglages pour mobile sans toucher à desktop
     @media (max-width: $breakpoint-mobile) {
+      object-fit: contain; // Change le comportement de l'image pour les petits écrans
+      height: 100%; // S'adapte à la hauteur du conteneur
+      width: 100%; // Occupe toute la largeur disponible sur mobile
     }
   }
 
@@ -76,11 +85,12 @@
     width: 100px;
     height: 100px;
 
+    // Pagination seulement pour desktop, masquée sur mobile
     @media (max-width: $breakpoint-mobile) {
       display: none; // Cacher la pagination sur mobile
     }
   }
 }
 
-// Variables pour le breakpoint mobile (ajuster selon ton projet)
+// Variables pour le breakpoint mobile
 $breakpoint-mobile: 768px !default;
