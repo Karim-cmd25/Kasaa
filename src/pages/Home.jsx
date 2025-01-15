@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import HomeImage from "../assets/images/banner/bannerHome.webp";
 import Card from "../components/Card";
+import "../assets/styles/scss/home.scss";
 
 import Footer from "../components/Footer";
 
@@ -31,14 +32,18 @@ function Home() {
           altText="Paysage montagnes "
           title="Chez vous, partout et ailleurs"
         />
-        {locations.map((location) => (
-          <Card
-            title={location.title}
-            cover={location.cover}
-            id={location.id}
-            key={location.id}
-          />
-        ))}
+
+        {/* Conteneur des cartes */}
+        <div className="cards-container">
+          {locations.map((location) => (
+            <Card
+              title={location.title}
+              cover={location.cover}
+              id={location.id}
+              key={location.id}
+            />
+          ))}
+        </div>
       </main>
 
       <Footer />

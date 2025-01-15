@@ -3,6 +3,7 @@
 .card {
   width: 100%;
   max-width: $card-size;
+
   height: auto;
   aspect-ratio: 1 / 1;
   @include border-radius($border-radius-medium);
