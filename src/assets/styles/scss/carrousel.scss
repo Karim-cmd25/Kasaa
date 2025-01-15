@@ -54,7 +54,7 @@
     // On garde ce réglage ici car l'aspect desktop doit être intact
 
     @media (max-width: $breakpoint-mobile) {
-      height: 300px; // Ajuste la taille de l'image pour les écrans mobiles
+      height: 100%; // Ajuste la taille de l'image pour les écrans mobiles
     }
   }
 
@@ -71,7 +71,7 @@
     // Ajuste les réglages pour mobile sans toucher à desktop
     @media (max-width: $breakpoint-mobile) {
       object-fit: contain; // Change le comportement de l'image pour les petits écrans
-      height: 100%; // S'adapte à la hauteur du conteneur
+
       width: 100%; // Occupe toute la largeur disponible sur mobile
     }
   }

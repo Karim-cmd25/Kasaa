@@ -214,6 +214,14 @@
     margin-top: none;
   }
 
+  .details__host .details__host-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
   .details__main-container {
     display: flex;
     flex-direction: column;
