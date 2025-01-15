@@ -1,18 +1,16 @@
 @import "../settings";
 
-// Conteneur de toutes les cartes (seulement pour les écrans de bureau)
+// ** Desktop (écrans larges) - 1000px et plus **
 @media (min-width: 768px) {
   .cards-container {
     display: flex;
     flex-wrap: wrap;
-
     background-color: #f7f7f7; /* Fond gris pour les écrans de bureau */
-
-    width: 90%;
+    width: 88%;
     justify-content: center;
     border-radius: 25px;
 
-    /* Tous les styles pour les cards spécifiques aux desktops ici */
+    padding: 20px;
   }
 
   .card {
@@ -25,7 +23,6 @@
     position: relative;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    margin: 30px;
 
     &:hover {
       transition: 0.3s ease-in-out;
@@ -49,6 +46,58 @@
       color: $primary-color;
       margin-bottom: 20px;
       margin-left: 20px;
+    }
+  }
+}
+
+// ** Responsivité pour les écrans moyens (moins de 1000px) **
+@media (max-width: 1000px) {
+  .cards-container {
+    display: block; /* Passer à un affichage bloc pour les écrans plus petits */
+    width: 100%; /* Prendre toute la largeur de l'écran */
+    padding: 15px; /* Réduire le padding pour les petits écrans */
+    background-color: transparent; /* Enlever le fond gris */
+  }
+
+  .card {
+    width: 100%;
+    margin: 15px 0; /* Réduire l'espace entre les cartes */
+    max-width: none; /* Supprimer la limite de largeur */
+    aspect-ratio: auto; /* Permet à la carte de s'ajuster en fonction de son contenu */
+
+    &__image {
+      height: 300px; /* Ajuster la hauteur de l'image */
+      object-fit: cover; /* Assurer que l'image couvre l'espace sans déformation */
+      padding: 10px; /* Réduire le padding de l'image */
+      border-radius: 20px; /* Réduire légèrement le border-radius */
+    }
+
+    &__title {
+      font-size: 1.2rem; /* Réduire la taille du texte */
+      margin-left: 15px; /* Réduire la marge gauche */
+      margin-bottom: 15px; /* Ajuster la marge inférieure */
+    }
+  }
+}
+
+// ** Responsivité pour les très petits écrans (moins de 368px) **
+@media (max-width: 368px) {
+  .card {
+    margin: 0; /* Supprimer la marge */
+    width: 100%; /* Occupation complète de la largeur */
+    max-width: none; /* Suppression des contraintes de largeur */
+
+    &__image {
+      height: 180px; /* Réduire encore la hauteur de l'image */
+      object-fit: cover;
+      padding: 5px; /* Réduire le padding pour plus de place */
+      border-radius: 15px; /* Réduire le border-radius */
+    }
+
+    &__title {
+      font-size: 1rem; /* Taille de texte plus petite */
+      margin-left: 10px; /* Réduire la marge gauche */
+      margin-bottom: 10px; /* Ajuster la marge inférieure */
     }
   }
 }
